@@ -10,6 +10,27 @@
                   } %></li>
 </ul>
 
+<h2>Comments</h2>
+<% @owner.dogs.each do |dog| %>
+  <p>
+    <strong>Name:</strong>
+    <%= dog.name %>
+  </p>
+
+  <p>
+    <strong>Breed:</strong>
+    <%= dog.breed %>
+  </p>
+
+  <p>
+    <strong>Sub-Breed:</strong>
+    <%= dog.subbreed %>
+  </p>
+
+  <img src="https://dog.ceo/api/breed/<%= dog.breed %>/images"/>
+<% end %>
+
+
 <h2>Add a dog:</h2>
 <%= form_with model: [ @owner, @owner.dogs.build ] do |form| %>
   <p>
@@ -21,7 +42,7 @@
     <%= form.text_area :breed %>
   </p>
     <p>
-    <%= form.label :subbreed %><br>
+    <%= form.label :sub_breed %><br>
     <%= form.text_area :subbreed %>
   </p>
   <p>
