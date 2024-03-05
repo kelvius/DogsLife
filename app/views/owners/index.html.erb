@@ -1,9 +1,11 @@
-<h1>Dog Owners!</h1>
+<h1>We are owners!</h1>
 
 <ul>
   <% @owners.each do |owner| %>
     <li>
-      <%= owner.name %>  |  <%= owner.address %>
+      <a href="/owners/<%= owner.id %>">
+      <%= owner.name %>
+      </a>
     </li>
   <% end %>
 </ul>
