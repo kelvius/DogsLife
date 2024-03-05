@@ -1,3 +1,7 @@
 <h1><%= @owner.name %></h1>
 
 <p><%= @owner.address %></p>
+
+<ul>
+  <li><%= link_to "Edit", edit_owner_path(@owner) %></li>
+</ul>
