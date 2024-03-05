@@ -13,4 +13,11 @@
   <strong>Sub Breed:</strong>
   <%= dog.subbreed %>
 </p>
+
+  <p>
+    <%= link_to "Remove Dog", [dog.owner, dog], data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                } %>
+  </p>
 <% end %>

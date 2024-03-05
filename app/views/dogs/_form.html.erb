@@ -11,6 +11,12 @@
     <%= form.label :subbreed %><br>
     <%= form.text_area :subbreed %>
   </p>
+
+<p>
+  <%= form.label :status %><br>
+  <%= form.select :status, Visible::VALID_STATUSES, selected: 'public' %>
+</p>
+
   <p>
     <%= form.submit %>
   </p>
