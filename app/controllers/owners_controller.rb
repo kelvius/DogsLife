@@ -15,7 +15,8 @@ class OwnersController < ApplicationController
     @owner = Owner.new(owner_params)
 
     if @owner.save
-      redirect_to @owner
+      redirect_to owners_path
+      #redirect_to @owner
     else
       render :new, status: :unprocessable_entity
     end
@@ -29,10 +30,18 @@ class OwnersController < ApplicationController
     @owner = Owner.find(params[:id])
 
     if @owner.update(owner_params)
-      redirect_to @owner
+      redirect_to owners_path
+      # redirect_to @owner
     else
       render :edit, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @owner = Owner.find(params[:id])
+    @owner.destroy
+
+    redirect_to root_path, status: :see_other
   end
 
   private
