@@ -1,4 +1,6 @@
 class DogsController < ApplicationController
+  http_basic_authenticate_with name: "secret", password: "secret", only: :destroy
+
   def create
     @owner = Owner.find(params[:owner_id])
     @dog = @owner.dogs.create(dog_params)

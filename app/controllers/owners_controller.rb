@@ -1,4 +1,7 @@
 class OwnersController < ApplicationController
+
+  http_basic_authenticate_with name: "secret", password: "secret", except: [:index, :show]
+
   def index
     @owners = Owner.all
   end
