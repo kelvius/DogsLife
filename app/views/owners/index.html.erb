@@ -3,8 +3,8 @@
 <ul>
   <% @owners.each do |owner| %>
     <li>
-      <a href="/owners/<%= owner.id %>">
-      <%= owner.name %>
+      <a href="<%= owner_path(owner) %>">
+      <%= link_to owner.name, owner%>
       </a>
     </li>
   <% end %>
