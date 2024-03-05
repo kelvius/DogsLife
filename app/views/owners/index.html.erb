@@ -3,7 +3,7 @@
 There are <%= Owner.public_count %> dog owners!
 <ul>
   <% @owners.each do |owner| %>
-      <% unless article.archived? %>
+      <% unless owner.archived? %>
     <li>
       <%= link_to owner.name, owner%>
     </li>
