@@ -1,3 +1,4 @@
+<% unless dog.archived? %>
 <p>
   <strong>DogName:</strong>
   <%= dog.name %>
@@ -12,3 +13,4 @@
   <strong>Sub Breed:</strong>
   <%= dog.subbreed %>
 </p>
+<% end %>

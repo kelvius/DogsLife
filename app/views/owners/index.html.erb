@@ -2,11 +2,11 @@
 
 <ul>
   <% @owners.each do |owner| %>
+      <% unless article.archived? %>
     <li>
-      <a href="<%= owner_path(owner) %>">
       <%= link_to owner.name, owner%>
-      </a>
     </li>
+      <% end %>
   <% end %>
 </ul>
 
