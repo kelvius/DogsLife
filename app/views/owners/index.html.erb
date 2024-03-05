@@ -1,0 +1,9 @@
+<h1>Dog Owners!</h1>
+
+<ul>
+  <% @owners.each do |owner| %>
+    <li>
+      <%= owner.name %>  |  <%= owner.address %>
+    </li>
+  <% end %>
+</ul>
