@@ -21,6 +21,20 @@ class OwnersController < ApplicationController
     end
   end
 
+  def edit
+    @owner = Owner.find(params[:id])
+  end
+
+  def update
+    @owner = Owner.find(params[:id])
+
+    if @owner.update(owner_params)
+      redirect_to @owner
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   private
     def owner_params
       params.require(:owner).permit(:name, :address)
