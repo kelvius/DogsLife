@@ -12,7 +12,7 @@ class OwnersController < ApplicationController
   end
 
   def create
-    @owner = Owner.new(name:"...",address:"...")
+    @owner = Owner.new(owner_params)
 
     if @owner.save
       redirect_to @owner
@@ -20,4 +20,9 @@ class OwnersController < ApplicationController
       render :new, status: :unprocessable_entity
     end
   end
+
+  private
+    def owner_params
+      params.require(:owner).permit(:name,:address)
+    end
 end
