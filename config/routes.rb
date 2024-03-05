@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   # get "/owners", to: "owners#index"
   # get "/owners/:id", to: "owners#show"
 
-  resources :owners
+  resources :owners do
+    resources :dogs
+  end
 
   # Defines the root path route ("/")
   # root "posts#index"
