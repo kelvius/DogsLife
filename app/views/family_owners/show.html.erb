@@ -1,0 +1,46 @@
+<h1>FamilyOwnersTeam Details</h1>
+
+<div>
+<%= link_to "| Main |", family_owners_path %>
+<%= link_to " Persons |", persons_path %>
+<%= link_to " Dogs |", gooddogs_path %>
+<%= link_to " New Owner |", new_owner_path %>
+<%= link_to "Dog Breeds |", breeds_path%>
+<%= link_to "About |", about_index_path%>
+</div>
+
+<table>
+
+<h1> <%= @family_owner.surname %> Team </h1>
+
+  <tbody>
+    <table>
+    <h2>Family members</h2>
+       <tr>
+        <td> <h3>Name</h3></td>
+        <td> <h3>Address</h3> </td>
+      </tr>
+     <% @family_owner.persons.each do |person| %>
+      <tr>
+        <td><%= link_to person.name, person %></td>
+        <td><%= person.address %></td>
+      </tr>
+    <% end %>
+</table>
+<table>
+    <h2>Dog members</h2>
+        <tr>
+        <td> <h3>Name</h3></td>
+        <td> <h3>Breed</h3> </td>
+        <td> <h3>Favorite treat</h3></td>
+      </tr>
+     <% @family_owner.gooddogs.each do |gooddog| %>
+      <tr>
+        <td><%= link_to gooddog.name,gooddog %></td>
+        <td><%= gooddog.breed.name %></td>
+        <td><%= gooddog.favoritetreat %></td>
+      </tr>
+    <% end %>
+    </table>
+  </tbody>
+</table>

@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
-  get 'persons/index'
-  get 'about/index'
-  get 'breeds/index'
-  root "owners#index"
+  root "family_owners#index"
 
   # get "/owners", to: "owners#index"
   # get "/owners/:id", to: "owners#show"
@@ -18,6 +15,8 @@ Rails.application.routes.draw do
   resources :persons
 
   resources :gooddogs
+
+  resources :family_owners
 
   # Defines the root path route ("/")
   # root "posts#index"

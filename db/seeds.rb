@@ -12,9 +12,11 @@ require 'net/http'
 require 'json'
 require 'faker'
 
+FamilyOwnerJoin.destroy_all
 Gooddog.destroy_all
 Breed.destroy_all
 Person.destroy_all
+FamilyOwner.destroy_all
 
 # Fethich dog breeds
 DOG_API_URL = 'https://dog.ceo/api/breeds/list/all'.freeze
@@ -68,4 +70,30 @@ breed_names = Breed.pluck(:name)
     age: Faker::Number.between(from: 1, to: 15),
     breed: breed
   )
+end
+
+
+# Generate random surnames using Faker
+surnames = Array.new(20) { Faker::Name.last_name }
+
+surnames.each do |surname|
+  # Create a FamilyOwner with a random surname
+  family_owner = FamilyOwner.create(surname: surname)
+
+  # Generate a random number of persons (between 2 and 5)
+  num_persons = rand(2..5)
+
+  # Generate a random number of gooddogs (between 1 and 10)
+  num_gooddogs = rand(1..10)
+
+  # Retrieve random persons and gooddogs
+  persons = Person.order("RANDOM()").limit(num_persons)
+  gooddogs = Gooddog.order("RANDOM()").limit(num_gooddogs)
+
+  # Associate persons and gooddogs with the FamilyOwner
+  persons.each do |person|
+    gooddogs.each do |gooddog|
+      FamilyOwnerJoin.create(family_owner: family_owner, person: person, gooddog: gooddog)
+    end
+  end
 end

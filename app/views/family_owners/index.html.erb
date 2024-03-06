@@ -1,4 +1,4 @@
-<h1>List of Gooddogs</h1>
+<h1>FamilyOwnersTeam</h1>
 
 <div>
 <%= link_to "| Main |", family_owners_path %>
@@ -12,19 +12,15 @@
 <table>
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Breed</th>
-      <th>Favorite Treat</th>
+      <th>Surname</th>
+      <th>Persons Count</th>
     </tr>
   </thead>
   <tbody>
-    <% @gooddogs.each do |gooddog| %>
+    <% @family_owners.each do |family_owner| %>
       <tr>
-        <td><%= gooddog.name %></td>
-        <td><%= gooddog.age %></td>
-        <td><%= gooddog.breed.name %></td>
-        <td><%= gooddog.favoritetreat %></td>
+        <td><%= link_to family_owner.surname + "Team", family_owner %></td>
+        <td><%= family_owner.persons.count %></td>
       </tr>
     <% end %>
   </tbody>

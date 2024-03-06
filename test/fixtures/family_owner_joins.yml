@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  family_owner: one
+  person: one
+  gooddog: one
+
+two:
+  family_owner: two
+  person: two
+  gooddog: two

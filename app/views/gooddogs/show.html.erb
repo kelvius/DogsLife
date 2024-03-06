@@ -1,0 +1,33 @@
+<h1>Dog Details</h1>
+
+<div>
+<%= link_to "| Main |", family_owners_path %>
+<%= link_to " Persons |", persons_path %>
+<%= link_to " Dogs |", gooddogs_path %>
+<%= link_to " New Owner |", new_owner_path %>
+<%= link_to "Dog Breeds |", breeds_path%>
+<%= link_to "About |", about_index_path%>
+</div>
+
+<table>
+      <tr>
+        <td>
+           <strong>Name: </strong>
+        <%= @gooddog.name %>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+            <strong>Breed: </strong>
+          <%= @gooddog.breed.name %>
+          </td>
+          </tr>
+
+          <tr>
+        <td>
+            <strong>Favorite Treat: </strong>
+          <%= @gooddog.favoritetreat %>
+          </td>
+          </tr>
+</table>
