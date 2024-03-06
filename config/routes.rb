@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'about/index'
   get 'breeds/index'
   root "owners#index"
 
@@ -8,6 +9,8 @@ Rails.application.routes.draw do
   resources :owners do
     resources :dogs
   end
+
+  resources :about
 
   resources :breeds
 
