@@ -1,0 +1,22 @@
+<h1>List of Gooddogs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Breed</th>
+      <th>Favorite Treat</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @gooddogs.each do |gooddog| %>
+      <tr>
+        <td><%= gooddog.name %></td>
+        <td><%= gooddog.age %></td>
+        <td><%= gooddog.breed.name %></td>
+        <td><%= gooddog.favoritetreat %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
