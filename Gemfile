@@ -26,6 +26,9 @@ gem "stimulus-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# Faker helps you generate realistic test data, and populate your database with more than a couple of records while you're doing development.
+gem "faker"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
