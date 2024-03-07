@@ -1,27 +1,31 @@
-<h1>Person Details</h1>
+<section class="section">
+  <div class="container">
+    <h1 class="title">Person Details</h1>
 
-<div>
-<%= link_to "| Main |", family_owners_path %>
-<%= link_to " Persons |", persons_path %>
-<%= link_to " Dogs |", gooddogs_path %>
-<%= link_to " Dog master |", owners_path %>
-<%= link_to "Dog Breeds |", breeds_path%>
-<%= link_to "About |", about_index_path%>
-</div>
+    <div class="tabs">
+      <ul>
+        <li><%= link_to "Main", family_owners_path %></li>
+        <li><%= link_to "Persons", persons_path %></li>
+        <li><%= link_to "Dogs", gooddogs_path %></li>
+        <li><%= link_to "Dog master", owners_path %></li>
+        <li><%= link_to "Dog Breeds", breeds_path %></li>
+        <li><%= link_to "About", about_index_path %></li>
+      </ul>
+    </div>
 
-<table>
+    <table class="table">
       <tr>
         <td>
-           <strong>Name: </strong>
-        <%= @person.name %>
+          <strong>Name:</strong>
+          <%= @person.name %>
         </td>
       </tr>
-
       <tr>
-
         <td>
-            <strong>Address: </strong>
+          <strong>Address:</strong>
           <%= @person.address %>
-          </td>
-          </tr>
-</table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</section>

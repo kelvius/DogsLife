@@ -1,33 +1,37 @@
-<h1>Dog Details</h1>
+<section class="section">
+  <div class="container">
+    <h1 class="title">Dog Details</h1>
 
-<div>
-<%= link_to "| Main |", family_owners_path %>
-<%= link_to " Persons |", persons_path %>
-<%= link_to " Dogs |", gooddogs_path %>
-<%= link_to " Dog master |", owners_path %>
-<%= link_to "Dog Breeds |", breeds_path%>
-<%= link_to "About |", about_index_path%>
-</div>
+    <div class="tabs">
+      <ul>
+        <li><%= link_to "Main", family_owners_path %></li>
+        <li><%= link_to "Persons", persons_path %></li>
+        <li><%= link_to "Dogs", gooddogs_path %></li>
+        <li><%= link_to "Dog master", owners_path %></li>
+        <li><%= link_to "Dog Breeds", breeds_path %></li>
+        <li><%= link_to "About", about_index_path %></li>
+      </ul>
+    </div>
 
-<table>
+    <table class="table">
       <tr>
         <td>
-           <strong>Name: </strong>
-        <%= @gooddog.name %>
+          <strong>Name:</strong>
+          <%= @gooddog.name %>
         </td>
       </tr>
-
       <tr>
         <td>
-            <strong>Breed: </strong>
+          <strong>Breed:</strong>
           <%= @gooddog.breed.name %>
-          </td>
-          </tr>
-
-          <tr>
+        </td>
+      </tr>
+      <tr>
         <td>
-            <strong>Favorite Treat: </strong>
+          <strong>Favorite Treat:</strong>
           <%= @gooddog.favoritetreat %>
-          </td>
-          </tr>
-</table>
+        </td>
+      </tr>
+    </table>
+  </div>
+</section>

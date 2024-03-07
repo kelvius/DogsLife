@@ -1,13 +1,15 @@
 <h1>Breed list</h1></h1>
 
-<div>
-<%= link_to "| Main |", family_owners_path %>
-<%= link_to " Persons |", persons_path %>
-<%= link_to " Dogs |", gooddogs_path %>
-<%= link_to " Dog master |", owners_path %>
-<%= link_to "Dog Breeds |", breeds_path%>
-<%= link_to "About |", about_index_path%>
-</div>
+    <div class="tabs">
+      <ul>
+        <li><%= link_to "Main", family_owners_path %></li>
+        <li><%= link_to "Persons", persons_path, class: "is-active" %></li>
+        <li><%= link_to "Dogs", gooddogs_path %></li>
+        <li><%= link_to "Dog master", owners_path %></li>
+        <li><%= link_to "Dog Breeds", breeds_path %></li>
+        <li><%= link_to "About", about_index_path %></li>
+      </ul>
+    </div>
 
 <h1> Dog information:</h1>
 <strong> <%= @breed.name%></strong >

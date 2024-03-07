@@ -36,6 +36,8 @@ gem 'kaminari-bootstrap', '~> 3.0.1'
 
 gem 'will_paginate'
 
+gem "bulma-rails"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

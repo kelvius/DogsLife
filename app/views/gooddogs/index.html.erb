@@ -1,47 +1,53 @@
-<h1>List of Gooddogs</h1>
+<section class="section">
+  <div class="container">
+    <h1 class="title">List of Gooddogs</h1>
 
-<div>
-  <%= link_to "| Main |", family_owners_path %>
-  <%= link_to " Persons |", persons_path %>
-  <%= link_to " Dogs |", gooddogs_path %>
-  <%= link_to " Dog master |", owners_path %>
-  <%= link_to "Dog Breeds |", breeds_path%>
-  <%= link_to "About |", about_index_path%>
-</div>
+    <div class="tabs">
+      <ul>
+        <li><%= link_to "Main", family_owners_path %></li>
+        <li><%= link_to "Persons", persons_path, class: "is-active" %></li>
+        <li><%= link_to "Dogs", gooddogs_path %></li>
+        <li><%= link_to "Dog master", owners_path %></li>
+        <li><%= link_to "Dog Breeds", breeds_path %></li>
+        <li><%= link_to "About", about_index_path %></li>
+      </ul>
+    </div>
 
-<%= form_tag(gooddogs_path, method: :get) do %>
-  <div>
-    <%= select_tag :category, options_for_select([['All', 'all'], ['Name', 'name'], ['Breed', 'breed'], ['Favorite Treat', 'favoritetreat']], params[:category]) %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search..." %>
-    <%= submit_tag "Search" %>
-  </div>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Age</th>
-      <th>Breed</th>
-      <th>Favorite Treat</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% if @gooddogs.any? %>
-      <% @gooddogs.each do |gooddog| %>
-        <tr>
-          <td><%= gooddog.name %></td>
-          <td><%= gooddog.age %></td>
-          <td><%= gooddog.breed.name %></td>
-          <td><%= gooddog.favoritetreat %></td>
-        </tr>
-      <% end %>
-    <% else %>
-      <tr>
-        <td colspan="4">No gooddogs found.</td>
-      </tr>
+    <%= form_tag(gooddogs_path, method: :get) do %>
+      <div class="field is-grouped">
+        <%= select_tag :category, options_for_select([['All', 'all'], ['Name', 'name'], ['Breed', 'breed'], ['Favorite Treat', 'favoritetreat']], params[:category]), class: 'select' %>
+        <%= text_field_tag :search, params[:search], placeholder: "Search...", class: 'input' %>
+        <%= submit_tag "Search", class: 'button is-primary' %>
+      </div>
     <% end %>
-  </tbody>
-</table>
 
-<%= will_paginate @gooddogs %>
+    <table class="table is-hoverable">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Breed</th>
+          <th>Favorite Treat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @gooddogs.any? %>
+          <% @gooddogs.each do |gooddog| %>
+            <tr>
+              <td><%= gooddog.name %></td>
+              <td><%= gooddog.age %></td>
+              <td><%= gooddog.breed.name %></td>
+              <td><%= gooddog.favoritetreat %></td>
+            </tr>
+          <% end %>
+        <% else %>
+          <tr>
+            <td colspan="4">No gooddogs found.</td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <%= will_paginate @gooddogs, class: 'pagination' %>
+  </div>
+</section>

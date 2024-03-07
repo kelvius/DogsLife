@@ -1,24 +1,30 @@
-<h1>About page</h1>
+<section class="section">
+  <div class="container">
+    <h1 class="title">About page</h1>
 
-<div>
-<%= link_to "| Main |", family_owners_path %>
-<%= link_to " Persons |", persons_path %>
-<%= link_to " Dogs |", gooddogs_path %>
-<%= link_to " Dog master |", owners_path %>
-<%= link_to "Dog Breeds |", breeds_path%>
-<%= link_to "About |", about_index_path%>
-</div>
+    <div class="tabs">
+      <ul>
+        <li><%= link_to "Main", family_owners_path %></li>
+        <li><%= link_to "Persons", persons_path, class: "is-active" %></li>
+        <li><%= link_to "Dogs", gooddogs_path %></li>
+        <li><%= link_to "Dog master", owners_path %></li>
+        <li><%= link_to "Dog Breeds", breeds_path %></li>
+        <li><%= link_to "About", about_index_path %></li>
+      </ul>
+    </div>
 
-<div>
-This website utilizes information from a public api
-https://dog.ceo/dog-api/documentation/breed that gives a list of breeds and sub-breed of dogs then
-have dogs and person model to represent a individual dog and a person it also have an api to generate
-a person utilitizing https://randomuser.me/
-</div>
-<div>
-here is the ERD
-</div>
+    <div>
+      <p>
+        This website utilizes information from a public API called
+        <a href="https://dog.ceo/dog-api/documentation/breed">https://dog.ceo/dog-api/documentation/breed</a>,
+        which provides a list of dog breeds and sub-breeds. It also utilizes another API called
+        <a href="https://randomuser.me/">https://randomuser.me/</a> to generate random person data.
+      </p>
+    </div>
 
-<%= image_tag("dog_owner_erd.png", style: "width: 300px; height: 300px;") %>
-
-
+    <div>
+      <p>Here is the ERD:</p>
+      <%= image_tag("dog_owner_erd.png", style: "width: 300px; height: 300px;") %>
+    </div>
+  </div>
+</section>

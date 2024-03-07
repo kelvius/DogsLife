@@ -1,21 +1,26 @@
-<h1>Breed list</h1>
+<section class="section">
+  <div class="container">
+    <h1 class="title">Breed list</h1>
 
-<div>
-<%= link_to "| Main |", family_owners_path %>
-<%= link_to " Persons |", persons_path %>
-<%= link_to " Dogs |", gooddogs_path %>
-<%= link_to " Dog master |", owners_path %>
-<%= link_to "Dog Breeds |", breeds_path%>
-<%= link_to "About |", about_index_path%>
-</div>
+    <div class="tabs">
+      <ul>
+        <li><%= link_to "Main", family_owners_path %></li>
+        <li><%= link_to "Persons", persons_path, class: "is-active" %></li>
+        <li><%= link_to "Dogs", gooddogs_path %></li>
+        <li><%= link_to "Dog master", owners_path %></li>
+        <li><%= link_to "Dog Breeds", breeds_path %></li>
+        <li><%= link_to "About", about_index_path %></li>
+      </ul>
+    </div>
 
-There are <%= Breed.count %> dog breeds!
+    <p>There are <%= Breed.count %> dog breeds!</p>
 
-
-<ul>
-  <% @breeds.each do |breed| %>
-    <li>
-      <%= link_to breed.name, breed%>
-    </li>
-  <% end %>
-</ul>
+    <ul>
+      <% @breeds.each do |breed| %>
+        <li>
+          <%= link_to breed.name, breed %>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</section>

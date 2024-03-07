@@ -1,27 +1,33 @@
-<h1>FamilyOwnersTeam</h1>
+<section class="section">
+  <div class="container">
+    <h1 class="title">FamilyOwnersTeam</h1>
 
-<div>
-<%= link_to "| Main |", family_owners_path %>
-<%= link_to " Persons |", persons_path %>
-<%= link_to " Dogs |", gooddogs_path %>
-<%= link_to " Dog master |", owners_path %>
-<%= link_to "Dog Breeds |", breeds_path%>
-<%= link_to "About |", about_index_path%>
-</div>
+    <div class="tabs">
+      <ul>
+        <li><%= link_to "Main", family_owners_path %></li>
+        <li><%= link_to "Persons", persons_path %></li>
+        <li><%= link_to "Dogs", gooddogs_path %></li>
+        <li><%= link_to "Dog master", owners_path %></li>
+        <li><%= link_to "Dog Breeds", breeds_path %></li>
+        <li><%= link_to "About", about_index_path %></li>
+      </ul>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Surname</th>
-      <th>Persons Count</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @family_owners.each do |family_owner| %>
-      <tr>
-        <td><%= link_to family_owner.surname + "Team", family_owner %></td>
-        <td><%= family_owner.persons.count %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+    <table class="table is-hoverable is-fullwidth">
+      <thead>
+        <tr>
+          <th>Surname</th>
+          <th>Persons Count</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @family_owners.each do |family_owner| %>
+          <tr>
+            <td><%= link_to family_owner.surname + "Team", family_owner %></td>
+            <td><%= family_owner.persons.count %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</section>

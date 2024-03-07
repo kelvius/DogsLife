@@ -1,26 +1,35 @@
-<h1><%= @owner.name %></h1>
+<section class="section">
+  <div class="container">
 
-<p><%= @owner.address %></p>
+        <div class="tabs">
+      <ul>
+        <li><%= link_to "Main", family_owners_path %></li>
+        <li><%= link_to "Persons", persons_path, class: "is-active" %></li>
+        <li><%= link_to "Dogs", gooddogs_path %></li>
+        <li><%= link_to "Dog master", owners_path %></li>
+        <li><%= link_to "Dog Breeds", breeds_path %></li>
+        <li><%= link_to "About", about_index_path %></li>
+      </ul>
+    </div>
 
-<div>
-<%= link_to "| Main |", family_owners_path %>
-<%= link_to " Persons |", persons_path %>
-<%= link_to " Dogs |", gooddogs_path %>
-<%= link_to " Dog master |", owners_path %>
-<%= link_to "Dog Breeds |", breeds_path%>
-<%= link_to "About |", about_index_path%>
-</div>
+    <h1 class="title"><%= @owner.name %></h1>
 
-<ul>
-  <li><%= link_to "Edit", edit_owner_path(@owner) %></li>
-  <li><%= link_to "Destroy", owner_path(@owner), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
+    <p><%= @owner.address %></p>
 
-<h2>Dogs Owned</h2>
-<%= render @owner.dogs %>
 
-<h2>Add a dog:</h2>
-<%= render 'dogs/form' %>
+
+    <ul>
+      <li><%= link_to "Edit", edit_owner_path(@owner) %></li>
+      <li><%= link_to "Destroy", owner_path(@owner), data: {
+                        turbo_method: :delete,
+                        turbo_confirm: "Are you sure?"
+                      } %></li>
+    </ul>
+
+    <h2 class="subtitle">Dogs Owned</h2>
+    <%= render @owner.dogs %>
+
+    <h2 class="subtitle">Add a dog:</h2>
+    <%= render 'dogs/form' %>
+  </div>
+</section>
