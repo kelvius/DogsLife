@@ -1,6 +1,7 @@
 class GooddogsController < ApplicationController
+
   def index
-    @gooddogs = Gooddog.all
+    @gooddogs = Gooddog.all.paginate(page: params[:page])
   end
 
   def show

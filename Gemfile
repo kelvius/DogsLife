@@ -29,6 +29,13 @@ gem "jbuilder"
 # Faker helps you generate realistic test data, and populate your database with more than a couple of records while you're doing development.
 gem "faker"
 
+# For Pagination
+gem "kaminari"
+
+gem 'kaminari-bootstrap', '~> 3.0.1'
+
+gem 'will_paginate'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
