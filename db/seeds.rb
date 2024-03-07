@@ -92,8 +92,8 @@ surnames.each do |surname|
 
   # Associate persons and gooddogs with the FamilyOwner
   persons.each do |person|
-    gooddogs.each do |gooddog|
+   # Retrieve a random gooddog
+   gooddog = Gooddog.order("RANDOM()").first
       FamilyOwnerJoin.create(family_owner: family_owner, person: person, gooddog: gooddog)
     end
-  end
 end
