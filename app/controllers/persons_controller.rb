@@ -1,6 +1,6 @@
 class PersonsController < ApplicationController
   def index
-    @persons = Person.all
+    @persons = Person.all.paginate(page: params[:page])
   end
 
 def show
