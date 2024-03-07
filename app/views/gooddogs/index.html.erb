@@ -1,13 +1,21 @@
 <h1>List of Gooddogs</h1>
 
 <div>
-<%= link_to "| Main |", family_owners_path %>
-<%= link_to " Persons |", persons_path %>
-<%= link_to " Dogs |", gooddogs_path %>
-<%= link_to " Dog master |", owners_path %>
-<%= link_to "Dog Breeds |", breeds_path%>
-<%= link_to "About |", about_index_path%>
+  <%= link_to "| Main |", family_owners_path %>
+  <%= link_to " Persons |", persons_path %>
+  <%= link_to " Dogs |", gooddogs_path %>
+  <%= link_to " Dog master |", owners_path %>
+  <%= link_to "Dog Breeds |", breeds_path%>
+  <%= link_to "About |", about_index_path%>
 </div>
+
+<%= form_tag(gooddogs_path, method: :get) do %>
+  <div>
+    <%= select_tag :category, options_for_select([['All', 'all'], ['Name', 'name'], ['Breed', 'breed'], ['Favorite Treat', 'favoritetreat']], params[:category]) %>
+    <%= text_field_tag :search, params[:search], placeholder: "Search..." %>
+    <%= submit_tag "Search" %>
+  </div>
+<% end %>
 
 <table>
   <thead>
@@ -19,17 +27,21 @@
     </tr>
   </thead>
   <tbody>
-    <% @gooddogs.each do |gooddog| %>
+    <% if @gooddogs.any? %>
+      <% @gooddogs.each do |gooddog| %>
+        <tr>
+          <td><%= gooddog.name %></td>
+          <td><%= gooddog.age %></td>
+          <td><%= gooddog.breed.name %></td>
+          <td><%= gooddog.favoritetreat %></td>
+        </tr>
+      <% end %>
+    <% else %>
       <tr>
-        <td><%= gooddog.name %></td>
-        <td><%= gooddog.age %></td>
-        <td><%= gooddog.breed.name %></td>
-        <td><%= gooddog.favoritetreat %></td>
+        <td colspan="4">No gooddogs found.</td>
       </tr>
     <% end %>
-
-
   </tbody>
-
 </table>
+
 <%= will_paginate @gooddogs %>
