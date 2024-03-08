@@ -23,7 +23,7 @@
       <tbody>
         <% @persons.each do |person| %>
           <tr>
-            <td><%= person.name %></td>
+            <td><%=link_to person.name,person %></td>
             <td><%= person.address %></td>
           </tr>
         <% end %>

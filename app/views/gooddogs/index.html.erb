@@ -34,7 +34,7 @@
         <% if @gooddogs.any? %>
           <% @gooddogs.each do |gooddog| %>
             <tr>
-              <td><%= gooddog.name %></td>
+              <td><%= link_to gooddog.name, gooddog %></td>
               <td><%= gooddog.age %></td>
               <td><%= gooddog.breed.name %></td>
               <td><%= gooddog.favoritetreat %></td>
