@@ -27,5 +27,31 @@
         </td>
       </tr>
     </table>
+
+    <!-- app/views/maps/show.html.erb -->
+<div id="map" style="height: 400px;"></div>
+
+<script>
+  function initMap() {
+    var latitude = <%= @latitude %>;
+    var longitude = <%= @longitude %>;
+
+    var mapOptions = {
+      center: { lat: latitude, lng: longitude },
+      zoom: 10 // Adjust the zoom level as needed
+    };
+
+    var map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
+    var marker = new google.maps.Marker({
+      position: { lat: latitude, lng: longitude },
+      map: map
+    });
+  }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA56zK59tMsqLxoOM_29cr1qhPb1lEv3Oc&callback=initMap" async defer></script>
+
+
   </div>
 </section>

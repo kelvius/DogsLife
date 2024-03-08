@@ -38,6 +38,8 @@ gem 'will_paginate'
 
 gem "bulma-rails"
 
+gem 'google_maps_service'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

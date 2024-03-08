@@ -5,5 +5,7 @@ class PersonsController < ApplicationController
 
 def show
   @person = Person.find(params[:id])
+  @latitude = Person.find(params[:id]).latitude
+  @longitude = Person.find(params[:id]).longitude
 end
 end
